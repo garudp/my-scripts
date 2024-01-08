@@ -125,10 +125,10 @@ def send_email(sender_email, recipient_email, subject, html_body, blank_tags, in
             }
         )
     except ClientError as e:
-        print(f"Email sending failed. Reason: {e.response['Error']['Message']}")
+        logging.info(f"Email sending failed. Reason: {e.response['Error']['Message']} for email: {recipient_email} for the server {instance_id}")
     else:
-        print("Email sent successfully!")
-        print(f"Message ID: {response['MessageId']}")
+        logging.info(f"Email sent successfully! on email: {recipient_email} for the server {instance_id}")
+        logging.info(f"Message ID: {response['MessageId']}")
 
 # #--------------------------------------------------------------
 
